@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Valentine's Day Beh!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Floating background hearts container -->
+  <div class="floating-hearts" aria-hidden="true"></div>
+  <!-- Fast raining hearts (shown when she says YES) -->
+  <div id="raining-hearts" class="raining-hearts" aria-hidden="true"></div>
+
+  <!-- Love Check Login Screen -->
+  <main class="app-root">
+    <section id="login-screen" class="view active">
+      <div class="glass-card login-card">
+        <h1 class="card-title">Jessica, love mo paman ako?</h1>
+        <div class="card-actions">
+          <button id="login-yes" class="btn primary">ALANGAN</button>
+          <button id="login-no" class="btn ghost">DEHINDS NA</button>
+        </div>
+        <p id="login-error" class="card-error" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- Main Valentine Dashboard -->
+    <section id="main-screen" class="view">
+      <header class="top-bar">
+        <div class="brand">
+          <span class="brand-heart">♥</span>
+        </div>
+      </header>
+
+      <section class="dashboard-grid">
+        <!-- Step 1: Will You Be My Valentine -->
+        <div id="valentine-step" class="main-step active">
+          <section class="glass-card main-card">
+            <h2 class="card-title">Will you be my Valentine?</h2>
+            <div class="card-actions">
+              <button id="valentine-yes" class="btn primary large">YES</button>
+              <button id="valentine-no" class="btn ghost large runaway">NO</button>
+            </div>
+            <div id="love-meter" class="love-meter">
+              <div class="love-meter-fill"></div>
+            </div>
+            <p id="love-message" class="love-message"></p>
+            <div class="valentine-gif-wrapper">
+              <img
+                id="valentine-gif"
+                class="valentine-gif"
+                src="assets/happy-cheer.png"
+                alt="Squid Game celebration"
+              />
+            </div>
+            <div id="celebration-layer" class="celebration-layer" aria-hidden="true"></div>
+          </section>
+        </div>
+
+        <!-- Step 2: Gift section (shown after she clicks YES) -->
+        <div id="gift-step" class="main-step">
+          <section class="glass-card wishlist-card">
+          <h2 class="card-title">Anong gift ang gusto mo?</h2>
+          <form id="wishlist-form" class="wishlist-form" autocomplete="off">
+            <input id="wishlist-input" type="text" class="input" placeholder="Type here" />
+            <button type="submit" class="btn secondary">Add to Wishlist</button>
+          </form>
+          <div class="wishlist-progress">
+            <div class="wishlist-progress-bar">
+              <div class="wishlist-progress-fill" id="wishlist-progress-fill"></div>
+            </div>
+            <span class="wishlist-progress-label" id="wishlist-progress-label">0 gifts added</span>
+          </div>
+          <ul id="wishlist-list" class="wishlist-list"></ul>
+          </section>
+        </div>
+
+      </section>
+    </section>
+  </main>
+
+  <!-- Firebase for real-time wishlist (optional: add your config in firebase-config.js) -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
